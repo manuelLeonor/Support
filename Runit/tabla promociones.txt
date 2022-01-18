@@ -1,0 +1,56 @@
+Promociones Runit - SBX
+
+Select * from MKNUM
+MKNUM - esta tabla es la que se encarga de guardar las promociones por lote (cabecera)
+CAMPOS LLAVE -> MK_NUM (proviene de INITIAL)
+
+DATOS IMPORTANTES
+Typ = 1 precio x lote
+      2 descuento x lotes
+      3 descuento x tiempo limitado
+
+
+select * from MKDTL
+MKDTL - esta tabla contiene el detalle de las revajas
+CAMPOS LLAVE -> STYLE, BRAND, STORE, MK_NUM (proviene de INITAL y se relaciona con MKNUM)
+
+DATOS IMPORTANTES
+MK_AMOUNT es el precio nuevo
+MK_PER = es el porcentaje de descuento 
+
+
+select * from MARKDOWN
+MARKDOWN - contine la informacion procesada de las ofertas tipo REBAJA
+CAMPOS LLAVE -> DTE, STYLE, EXT, BRAND, STORE
+
+DATOS IMPORTANTES
+CM = 'T' procesado
+     'F' sin procesar
+
+
+select * from RUNSALE
+RUNSALE - contine la informacion procesada de las ofertas tipo temporales
+
+
+Select * from COUPHDR
+COUPHDR - contiene la informacion de los cupones (cabecera), contiene su propio contador independiente
+si e cupon en el campo de store esta vacio y hay que ir a la tabla y editarla y ponerle
+ALL
+CAMPOS LLAVE -> NUM, STORE_MADE
+
+
+select * from COUPITEM
+COUPITEM - son los items requeridos para que funcione el cupon
+CAMPOS LLAVE -> NUM, STORE_MADE, BRAND, STYLE, EXT
+
+
+select * from COUPSTOR 
+COUPSTOR - muestra a que tienda le pertenece el cupon en caso de que no este
+ahi es por que aplica a todas las tiendas
+CAMPOS LLAVE -> NUM, STORE_MADE, STORE
+
+
+select * from COUPAPLY
+COUPAPLY - contiene los items que se les va aplicar el descuento (aplicar el cupon)
+CAMPOS LLAVE -> NUM, STORE_MADE, BRAND, STYLE, EXT
+

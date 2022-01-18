@@ -1,0 +1,145 @@
+Configuración de terminal Zebra
+
+- Ngine
+	- Configuración de tienda
+		- 1301 Habilitar servicio tienda web   SI 
+		- 1302 Puerto   8080
+
+- Habilitar IIES
+	- Panel de control
+		-Programas y caracteristicas
+			- Activar o desactivar caracteristicas de windows
+				- Internet Information Services
+
+Reiniciar el servicio LOCAL
+
+Descomprimir el archivo Sbx_servicioweb  de la carpeta zebra android
+
+copiar la carpeta a: C:\inetpub\wwwroot
+
+
+Ingresar al IIES
+	- Sitios
+		- default web site
+			-clic derecho Sbx_servicioweb 
+				- convertir en aplicacion
+
+	- Grupo de aplicaciones seleccionar .Net v4.5 Classic ***Si no esta el 4.5 classic usar ASP.NET v4.0
+	- Crear un usuario administrador o si el usuario que utiliza es administrador utilizarlo
+	- Conectar como, usuario especifico, ingresar el usuario  y contraseña
+	- Aceptar
+
+Crear un odbc 
+	- Instalar el odbc de maria 32/64
+
+Ir a panel de control
+	- herramientas administrativas
+		- origenes de base de datos odbc
+			- DNS de sistema
+				Agregar
+			
+				Damos un nombre sbx-zebra
+	TCP/IP
+	server name: localhost
+	Port: 3306
+	user: los que utiliza el maria db
+	pass:
+	database: seleccionamos la base local
+	Next a todo
+	Aceptar
+
+Agregar tablas a la base de datos local
+	con el archivo tablas.txt
+
+Reiniciar el servicio local
+
+Ir al archivo config_db
+	- ir a la ruta C:\inetpub\wwwroot\Sbx_servicioweb
+		- Abrir el archivo Config_db
+		- y llenar los siguientes datos
+
+	SERVIDOR   =sbx-zebra   Nombre que le dimos al odbc
+	CONEXION   =ODBC
+	BASEDATOS  =sbx_local_capacitacion   Nombre de la base de datos local
+	USUARIO    =root		***Usuario y pass del mariadb
+	CLAVE      =Sync2016!
+	PUERTO     =3306
+
+Hacer una prueba para ver si abre este sitio
+http://localhost/Sbx_servicioweb/Service.asmx
+Si abre
+ir a AA_Usuario _validar
+Equipo: f58d6af101dff8df
+Token: 75975817MzQ5NTk4MzY5MDM5MzQ5Mjk3OTIzNjM0MzQ5ODM2MzQ4ODkxOTc5MTk3OTI5Nzk3OTI8
+Usuario:	Usuario y pass que exista en la local
+Contraseña
+
+Terminal portatil
+------------------------------------------------------------
+*** Para ver la terminal en la computadora
+Pasar el programa airdroid
+conectarse en airdroid web
+conectarse con la ip
+****
+
+Ir a data wedge
+DWDemo
+desactivar profile enabled
+ir atras
+Launcher
+desactivar profile enabled
+atras
+Profiles0 (default)
+Intent output
+Enabled
+Intent action
+com.scantest.action
+intent category
+Android.intent.category.DEFAULT
+Intent delivery
+Broadcast intent
+Receiver foreground flag  activar
+
+Pasar el apk de la terminal portatil
+	- Abrir la aplicacion
+	- pedir licencia
+
+CONEXION
+
+*Te debe de abrir por primera vez la configuracion si no lo hace en usuario pones //config
+ingresar los datos
+	ip del servidor	 IP de la computadora que tiene el servicio Local **Dejar IP FIJA
+	Sbx_servicioweb
+	puerto 80
+	test
+	Guardar
+
+BASIC
+Separacion Elementos  73
+Guardar
+
+DATOS
+Texto Dato 4:  Color
+Guardar
+
+
+VTA
+CODIGO ALMANCEN: NUMERO DE TIENDA
+NO CAJA: Crear una estacion exclusiva para la terminal portatil
+Guardar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
